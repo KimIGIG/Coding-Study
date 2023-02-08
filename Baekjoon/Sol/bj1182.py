@@ -33,3 +33,18 @@ def dfs(num, sum):
 
 dfs(0, 0)
 print(cnt)
+
+cnt = 0
+ans = []
+def solve(start):
+    global cnt
+    if sum(ans) == s and len(ans) > 0:
+        cnt += 1
+    
+    for i in range(start, N):
+        ans.append(arr[i])
+        solve(i+1)
+        ans.pop()
+
+solve(0)
+print(cnt)
